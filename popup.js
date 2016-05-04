@@ -1,19 +1,9 @@
-// Copyright (c) 2012 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
 
-// This extension demonstrates using chrome.downloads.download() to
-// download URLs.
-
-
-// Add links to allLinks and visibleLinks, sort and show them.  send_links.js is
-// injected into all frames of the active tab, so this listener may be called
-// multiple times.
 var lat =  -80
-var lon = -170
+var lon = -180
 
-var lat = -81
-var lon = 10
+//var lat = -81
+//var lon = 10
 
 var inprogress = 0
 var ohShitLiscence = false
@@ -42,7 +32,7 @@ chrome.extension.onRequest.addListener(function(ev) {
     }
   }
   if(ev.msg) {
-    log.value = ev.msg + '\n' 
+    log.value = ev.msg + '\n'
     //console.log(ev)
     if(ev.msg == 'no button') {
       pollForQueue()
@@ -68,7 +58,7 @@ function pollForQueue() {
   })
 }
 
-function wasThatALiscense(id) { 
+function wasThatALiscense(id) {
   chrome.downloads.search({id:id},function(dnlds){
     for(var x of dnlds) {
       if(x.filename.search('EE') && x.filename.search('html')) {
