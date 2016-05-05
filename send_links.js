@@ -8,7 +8,13 @@ function lookForLink() {
   console.log(links)
   if(links.length>0) {
     var butt = links[0]
-    if(forms.length > 0) { // the liscense agreement
+    var isLiscense = false
+    for(var x1 of links) {
+      if(x1.value.search('agree to the above')>0) {
+        isLiscense = true
+      }
+    }
+    if(isLiscense ) { // the liscense agreement
       var form = forms[0]
       form.submit()
     } else if(butt.value = 'Download') { // the download button

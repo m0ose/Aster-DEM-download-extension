@@ -62,11 +62,11 @@ function wasThatALiscense(id) {
   chrome.downloads.search({id:id},function(dnlds){
     for(var x of dnlds) {
       if(x.filename.search('EE') && x.filename.search('html')) {
-	ohShitLiscence = true
-	setTimeout( function(){ chrome.downloads.download({url: ev.file}, function(id) {
-	    console.log('downloaded', ev.file)
-	  })
-	},10000)
+        ohShitLiscence = true
+        setTimeout( function(){ chrome.downloads.download({url: x.file}, function(id) {
+            console.log('downloaded', x.file)
+          })
+        },10000)
       }
     }
   })
