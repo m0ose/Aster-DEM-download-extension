@@ -9,7 +9,9 @@ function lookForLink() {
   if(links.length>0) {
     var butt = links[0]
     var isLiscense = false
-    for(var x1 of links) {
+    //for(var x1 of links) {
+    for(var n1=0; n1<links.length; n1++) {
+      var x1 = links[n1]
       if(x1.value.search('agree to the above')>0) {
         isLiscense = true
       }
