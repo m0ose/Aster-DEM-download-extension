@@ -63,8 +63,8 @@ function wasThatALiscense(id) {
     for(var x of dnlds) {
       if(x.filename.search('EE') && x.filename.search('html')) {
         ohShitLiscence = true
-        setTimeout( function(){ chrome.downloads.download({url: x.file}, function(id) {
-            console.log('downloaded', x.file)
+        setTimeout( function(){ chrome.downloads.download({url: x.url}, function(id) {
+            console.log('downloaded', x.url)
           })
         },10000)
       }
